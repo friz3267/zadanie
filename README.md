@@ -1,59 +1,50 @@
 # zadanie
 
-Gra w Zgadywanie Liczb (z rankingiem Top 5)
-Prosta gra konsolowa napisana w języku C++, polegająca na odgadnięciu wylosowanej przez komputer liczby w jak najmniejszej liczbie prób. Program przechowuje listę 5 najlepszych wyników w trakcie działania aplikacji.
+🎮 Gra w Zgadywanie Liczb (zadanko.cpp)
+Prosta gra konsolowa napisana w języku C++, w której zadaniem gracza jest odgadnięcie wylosowanej liczby przy jak najmniejszej liczbie prób. Program posiada system poziomów trudności oraz dynamicznie odblokowywany ranking Top 5.
 
-📋 Cechy projektu
-3 poziomy trudności:
+🚀 Funkcje
+Trzy poziomy trudności:
 
-Łatwy (zakres 1-10)
+Łatwy (1−10)
 
-Średni (zakres 1-50)
+Średni (1−50)
 
-Trudny (zakres 1-100)
+Trudny (1−100)
 
-System podpowiedzi: Gra informuje, czy podana liczba jest "za duża" czy "za mała".
+Inteligentne Menu: Opcja wyświetlania rankingu jest całkowicie ukryta do czasu zakończenia pierwszej rozgrywki.
 
-Ranking Top 5: Tabela najlepszych graczy, która sortuje wyniki od najmniejszej liczby prób.
+Ranking Top 5: Program automatycznie sortuje i przechowuje najlepsze wyniki na podstawie liczby prób.
 
-Własna struktura danych: Wykorzystanie struct do przechowywania danych gracza.
+Obsługa błędów: Program radzi sobie z błędnymi danymi wejściowymi (np. gdy użytkownik wpisze literę zamiast cyfry).
 
-🚀 Jak uruchomić
-Upewnij się, że masz zainstalowany kompilator C++ (np. G++).
+🛠️ Kompilacja i uruchomienie
+Otwórz terminal lub wiersz poleceń.
 
-Skompiluj plik źródłowy (np. main.cpp):
+Skompiluj plik za pomocą kompilatora g++:
 
 Bash
 
-g++ main.cpp -o gra
+g++ zadanko.cpp -o zgadywanka
 Uruchom program:
 
-Windows: gra.exe
+Windows:
 
-Linux/Mac: ./gra
+Bash
 
-🕹️ Instrukcja obsługi
-W menu głównym wybierz 1, aby rozpocząć grę.
+zgadywanka.exe
+Linux/macOS:
 
-Wybierz poziom trudności (1, 2 lub 3).
+Bash
 
-Wpisuj liczby, sugerując się podpowiedziami gry, aż trafisz w wylosowaną wartość.
+./zgadywanka
+🕹️ Logika programu
+Program wykorzystuje pętlę do-while do obsługi menu oraz algorytm sortowania bąbelkowego do zarządzania tabelą wyników. Poniżej schemat działania menu:
 
-Jeśli Twój wynik (liczba prób) jest wystarczająco dobry, zostaniesz poproszony o wpisanie imienia i trafisz na listę Top 5.
+Start: Widzisz tylko opcje "Graj" i "Wyjście".
 
-Wybierz 2 w menu głównym, aby podejrzeć tabelę wyników.
+Rozgrywka: Wybierasz poziom i zgadujesz liczbę.
 
-🛠️ Opis techniczny (Dla programisty)
-Kod wykorzystuje podstawowe oraz średniozaawansowane elementy języka C++:
+Odblokowanie: Po wygranej flaga czyMoznaWyswietlicTop zmienia się na true.
 
-1. Struktura Gracz
-Program definiuje własny typ danych za pomocą słowa kluczowego struct. Pozwala to przechowywać powiązane dane w jednym obiekcie:
-
-2. Tablica i Inicjalizacja
-Ranking przechowywany jest w tablicy Gracz top5[5]. Na początku programu tablica wypełniana jest wartościami "startowymi" (liczba prób 9999), aby każdy nowy, rzeczywisty wynik gracza był od nich lepszy i mógł zostać wpisany na listę.
-
-3. Algorytm Sortowania (Ranking)
-Po dodaniu nowego gracza na koniec listy (zastępując najsłabszy wynik), program wykorzystuje sortowanie bąbelkowe, aby ułożyć wyniki w kolejności rosnącej (od najmniejszej liczby prób do największej). Dzięki temu na górze tabeli zawsze widnieją najlepsi gracze.
-
-4. Losowość
-Wykorzystano funkcję srand(time(0)) do inicjalizacji generatora liczb pseudolosowych, co zapewnia unikalność rozgrywki przy każdym uruchomieniu programu.
+Ranking: Od tego momentu w menu głównym widzisz dodatkową opcję 2. Top 5.
