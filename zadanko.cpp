@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <string>
@@ -67,7 +67,8 @@ int main() {
             cout << "\nZgadnij liczbe od 1 do " << zakres << "\n";
 
             do {
-                cout << "Podaj liczbe: ";
+                cout << "Proba [" << proby + 1 << "]: Podaj liczbe: ";
+
                 if (!(cin >> strzal)) {
                     cout << "To nie jest liczba! Tracisz probe.\n";
                     cin.clear();
